@@ -1,6 +1,7 @@
 import React from "react";
 import "./Clock.css"
 import BreakLengthInput from "../BreakLengthInput/BreakLengthInput";
+import Timer from "../Timer/Timer";
 
 class Clock extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class Clock extends React.Component {
     this.state = {
       breakLength: 5,
       sessionLength: 25,
-      timeRemaining: "25:00"
+      timeLeft: "25:00",
+      isPlaying: false,
     }
   }
 
@@ -16,12 +18,14 @@ class Clock extends React.Component {
     return(
       <div className="ClockTwentyFive">
         <h1>25 + 5 Clock</h1>
-        <div className="ClockTwentyFive-inputs">
-          <BreakLengthInput name="break" value={this.state.breakLength} />
-          <BreakLengthInput name="session" value={this.state.sessionLength} />
-        </div>
-        <div className="ClockTwentyFive-timerContainer">
-          
+        <div className="ClockTwentyFive-innerContainer">
+          <div className="ClockTwentyFive-inputs">
+            <BreakLengthInput name="break" value={this.state.breakLength} />
+            <BreakLengthInput name="session" value={this.state.sessionLength} />
+          </div>
+          <div className="Timer-container">
+            <Timer timeLeft={this.state.timeLeft} isPlaying={this.state.isPlaying}/>
+          </div>
         </div>
       </div>
     );

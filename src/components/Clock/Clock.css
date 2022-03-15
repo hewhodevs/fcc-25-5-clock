@@ -1,5 +1,24 @@
+.ClockTwentyFive {
+  max-width: 400px;
+}
+
+.ClockTwentyFive-innerContainer {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.ClockTwentyFive > h1 {
+  text-align: center;
+}
+
 .ClockTwentyFive-inputs {
-  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+}
+
+.Timer-container {
+  border-top: 1px solid black;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
