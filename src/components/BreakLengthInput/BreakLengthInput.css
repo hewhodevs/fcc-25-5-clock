@@ -1,0 +1,21 @@
+.BreakLengthInput {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 5px;
+}
+
+.BreakLengthInput-title {
+  text-transform: capitalize;
+}
+
+.BreakLengthInput-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BreakLengthInput-increment, .BreakLengthInput-decrement {
+  height: 30px;
+  width: 30px;
+  margin: 0 15px;
+}
