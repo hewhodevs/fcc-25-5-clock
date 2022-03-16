@@ -12,6 +12,16 @@ class Clock extends React.Component {
       timeLeft: 1500,
       isPlaying: false,
     }
+    this.setSessionLength = this.setSessionLength.bind(this);
+    this.setBreakLength = this.setBreakLength.bind(this);
+  }
+
+  setSessionLength(length) {
+    this.setState({sessionLength: length});
+  }
+
+  setBreakLength(length) {
+    this.setState({breakLength: length});
   }
 
   render() {
@@ -20,8 +30,8 @@ class Clock extends React.Component {
         <h1>25 + 5 Clock</h1>
         <div className="ClockTwentyFive-innerContainer">
           <div className="ClockTwentyFive-inputs">
-            <BreakLengthInput name="break" value={this.state.breakLength} />
-            <BreakLengthInput name="session" value={this.state.sessionLength} />
+            <BreakLengthInput name="break" value={this.state.breakLength} updateValue={this.setBreakLength}/>
+            <BreakLengthInput name="session" value={this.state.sessionLength} updateValue={this.setSessionLength} />
           </div>
           <div className="Timer-container">
             <Timer timeLeft={this.state.timeLeft} isPlaying={this.state.isPlaying}/>
