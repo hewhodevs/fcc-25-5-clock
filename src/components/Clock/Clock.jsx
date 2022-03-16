@@ -14,6 +14,8 @@ class Clock extends React.Component {
     }
     this.setBreakLength = this.setBreakLength.bind(this);
     this.setSessionLength = this.setSessionLength.bind(this);
+    this.setTimeLeft = this.setTimeLeft.bind(this);
+    this.setIsPlaying = this.setIsPlaying.bind(this);
     this.reset = this.reset.bind(this);
   }
 
@@ -26,6 +28,14 @@ class Clock extends React.Component {
       sessionLength: length,
       timeLeft: length * 60
     });
+  }
+
+  setTimeLeft(seconds) {
+    this.setState({timeLeft: seconds});
+  }
+
+  setIsPlaying(bool) {
+    this.setState({isPlaying: bool});
   }
 
   reset() {
@@ -59,6 +69,8 @@ class Clock extends React.Component {
             <Timer 
               timeLeft={this.state.timeLeft} 
               isPlaying={this.state.isPlaying} 
+              setTimeLeft={this.setTimeLeft}
+              setIsPlaying={this.setIsPlaying}
               reset={this.reset}
             />
           </div>
