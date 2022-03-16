@@ -12,45 +12,20 @@ class Clock extends React.Component {
       timeLeft: 1500,
       isPlaying: false,
     }
-    this.incrementBreakLength = this.incrementBreakLength.bind(this);
-    this.decrementBreakLength = this.decrementBreakLength.bind(this);
-    this.incrementSessionLength = this.incrementSessionLength.bind(this);
-    this.decrementSessionLength = this.decrementSessionLength.bind(this);
+    this.setBreakLength = this.setBreakLength.bind(this);
+    this.setSessionLength = this.setSessionLength.bind(this);
     this.reset = this.reset.bind(this);
   }
 
-  incrementBreakLength() {
-    if(this.state.breakLength < 60) {
-      this.setState((prevState) => ({
-        breakLength: prevState.breakLength + 1
-      }));
-    }
+  setBreakLength(length) {
+    this.setState({breakLength: length});
   }
-
-  decrementBreakLength() {
-    if(this.state.breakLength > 1) {
-      this.setState((prevState) => ({
-        breakLength: prevState.breakLength - 1
-      }));
-    }
-  }
-
-  incrementSessionLength() {
-    if(this.state.sessionLength < 60) {
-      this.setState((prevState) => ({
-        sessionLength: prevState.sessionLength + 1,
-        timeLeft: (prevState.sessionLength + 1) * 60
-      }));
-    }
-  }
-
-  decrementSessionLength() {
-    if(this.state.sessionLength > 1) {
-      this.setState((prevState) => ({
-        sessionLength: prevState.sessionLength - 1,
-        timeLeft: (prevState.sessionLength - 1) * 60
-      }));
-    }
+  
+  setSessionLength(length) {
+    this.setState({
+      sessionLength: length,
+      timeLeft: length * 60
+    });
   }
 
   reset() {
@@ -72,14 +47,12 @@ class Clock extends React.Component {
             <BreakLengthInput 
               name="break" 
               value={this.state.breakLength} 
-              incrementLength={this.incrementBreakLength}
-              decrementLength={this.decrementBreakLength} 
+              setLength={this.setBreakLength}
             />
             <BreakLengthInput 
               name="session" 
               value={this.state.sessionLength} 
-              incrementLength={this.incrementSessionLength}
-              decrementLength={this.decrementSessionLength}
+              setLength={this.setSessionLength}
             />
           </div>
           <div className="Timer-container">
