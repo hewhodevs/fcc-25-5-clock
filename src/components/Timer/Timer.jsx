@@ -8,6 +8,7 @@ class Timer extends React.Component {
     this.stop = this.stop.bind(this);
     this.reset = this.reset.bind(this);
     this.updateTimer = this.updateTimer.bind(this);
+    this.playBeep = this.playBeep.bind(this);
     this.getMMSSFormat = this.getMMSSFormat.bind(this);
   }
 
@@ -40,9 +41,15 @@ class Timer extends React.Component {
   updateTimer() {
     if(this.props.timeLeft < 1) {
       this.props.toggleIsBreak();
+      this.playBeep();
     } else {
       this.props.setTimeLeft(this.props.timeLeft - 1);
     }
+  }
+
+  playBeep() {
+    const audio = document.getElementById("beep");
+    audio.play();
   }
 
   getMMSSFormat(totalSeconds) {
@@ -63,6 +70,10 @@ class Timer extends React.Component {
         <div>
           <button id="start_stop" onClick={this.startStop}>{playPauseText}</button>
           <button id="reset" onClick={this.reset} >reset</button>
+          <audio id="beep">
+            <source src="https://github.com/hewhodevs/fcc-25-5-clock/raw/main/src/audio/notification.wav" type="audio/wav" />
+            Your browser does not support the audio element.
+          </audio>
         </div>
       </div>
     );
