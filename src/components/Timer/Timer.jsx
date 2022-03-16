@@ -5,7 +5,10 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.startStop = this.startStop.bind(this);
+    this.stop = this.stop.bind(this);
     this.reset = this.reset.bind(this);
+    this.updateTimer = this.updateTimer.bind(this);
+    this.getMMSSFormat = this.getMMSSFormat.bind(this);
   }
 
   startStop() {
@@ -22,7 +25,7 @@ class Timer extends React.Component {
   }
 
   start() {
-    this.timer();
+    this.interval = setInterval(this.updateTimer, 1000);
   }
 
   stop() {
@@ -34,12 +37,11 @@ class Timer extends React.Component {
     this.props.reset();
   }
 
-  timer() {
-    const timeLeft = this.props.timeLeft
-    if(timeLeft > 0) {
-      this.interval = setInterval(() => {
-        this.props.setTimeLeft(this.props.timeLeft - 1);
-      }, 1000);
+  updateTimer() {
+    if(this.props.timeLeft < 1) {
+      this.stop();
+    } else {
+      this.props.setTimeLeft(this.props.timeLeft - 1);
     }
   }
 
