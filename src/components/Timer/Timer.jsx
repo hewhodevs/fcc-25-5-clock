@@ -35,6 +35,7 @@ class Timer extends React.Component {
 
   reset() {
     this.stop();
+    this.resetBeep();
     this.props.reset();
   }
 
@@ -50,6 +51,12 @@ class Timer extends React.Component {
   playBeep() {
     const audio = document.getElementById("beep");
     audio.play();
+  }
+
+  resetBeep() {
+    const audio = document.getElementById("beep");
+    audio.pause();
+    audio.currentTime = 0;
   }
 
   getMMSSFormat(totalSeconds) {
