@@ -7,9 +7,9 @@ class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      breakLength: 10,
-      sessionLength: 30,
-      timeLeft: 3600,
+      breakLength: 5,
+      sessionLength: 25,
+      timeLeft: 1500,
       isPlaying: false,
     }
     this.incrementBreakLength = this.incrementBreakLength.bind(this);
