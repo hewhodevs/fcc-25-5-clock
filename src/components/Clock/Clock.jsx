@@ -9,11 +9,14 @@ class Clock extends React.Component {
     this.state = {
       breakLength: 5,
       sessionLength: 25,
+      isBreak: false,
       timeLeft: 1500,
       isPlaying: false,
     }
     this.setBreakLength = this.setBreakLength.bind(this);
     this.setSessionLength = this.setSessionLength.bind(this);
+    this.toggleIsBreak = this.toggleIsBreak.bind(this);
+    this.alternateTimer = this.alternateTimer.bind(this);
     this.setTimeLeft = this.setTimeLeft.bind(this);
     this.setIsPlaying = this.setIsPlaying.bind(this);
     this.reset = this.reset.bind(this);
@@ -28,6 +31,22 @@ class Clock extends React.Component {
       sessionLength: length,
       timeLeft: length * 60
     });
+  }
+
+  toggleIsBreak() {
+    this.setState((prevState) => ({
+      isBreak: !prevState.isBreak
+    }));
+    this.alternateTimer();
+  }
+
+  alternateTimer() {
+    //switch between session and break timers
+    if(this.state.isBreak) {
+      this.setTimeLeft(this.state.breakLength * 60);
+    } else {
+      this.setTimeLeft(this.state.sessionLength * 60);
+    }
   }
 
   setTimeLeft(seconds) {
@@ -69,6 +88,7 @@ class Clock extends React.Component {
             <Timer 
               timeLeft={this.state.timeLeft} 
               isPlaying={this.state.isPlaying} 
+              toggleIsBreak={this.toggleIsBreak}
               setTimeLeft={this.setTimeLeft}
               setIsPlaying={this.setIsPlaying}
               reset={this.reset}

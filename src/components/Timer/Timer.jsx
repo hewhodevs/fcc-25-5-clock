@@ -39,7 +39,7 @@ class Timer extends React.Component {
 
   updateTimer() {
     if(this.props.timeLeft < 1) {
-      this.stop();
+      this.props.toggleIsBreak();
     } else {
       this.props.setTimeLeft(this.props.timeLeft - 1);
     }
