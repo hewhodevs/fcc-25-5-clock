@@ -38,7 +38,8 @@ class Clock extends React.Component {
   incrementSessionLength() {
     if(this.state.sessionLength < 60) {
       this.setState((prevState) => ({
-        sessionLength: prevState.sessionLength + 1
+        sessionLength: prevState.sessionLength + 1,
+        timeLeft: (prevState.sessionLength + 1) * 60
       }));
     }
   }
@@ -46,7 +47,8 @@ class Clock extends React.Component {
   decrementSessionLength() {
     if(this.state.sessionLength > 1) {
       this.setState((prevState) => ({
-        sessionLength: prevState.sessionLength - 1
+        sessionLength: prevState.sessionLength - 1,
+        timeLeft: (prevState.sessionLength - 1) * 60
       }));
     }
   }
