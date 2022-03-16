@@ -1,5 +1,5 @@
 import React from 'react';
-import "./BreakLengthInput.css";
+import "./LengthControl.css";
 
 class BreakLengthInput extends React.Component {
   constructor(props) {

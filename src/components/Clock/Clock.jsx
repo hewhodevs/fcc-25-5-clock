@@ -1,6 +1,6 @@
 import React from "react";
 import "./Clock.css"
-import BreakLengthInput from "../BreakLengthInput/BreakLengthInput";
+import LengthControl from "../LengthControl/LengthControl";
 import Timer from "../Timer/Timer";
 
 class Clock extends React.Component {
@@ -54,12 +54,12 @@ class Clock extends React.Component {
         <h1>25 + 5 Clock</h1>
         <div className="ClockTwentyFive-innerContainer">
           <div className="ClockTwentyFive-inputs">
-            <BreakLengthInput 
+            <LengthControl 
               name="break" 
               value={this.state.breakLength} 
               setLength={this.setBreakLength}
             />
-            <BreakLengthInput 
+            <LengthControl 
               name="session" 
               value={this.state.sessionLength} 
               setLength={this.setSessionLength}
