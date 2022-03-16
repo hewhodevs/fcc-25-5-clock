@@ -81,7 +81,11 @@ class Clock extends React.Component {
             />
           </div>
           <div className="Timer-container">
-            <Timer timeLeft={this.state.timeLeft} isPlaying={this.state.isPlaying} reset={this.reset}/>
+            <Timer 
+              timeLeft={this.state.timeLeft} 
+              isPlaying={this.state.isPlaying} 
+              reset={this.reset}
+            />
           </div>
         </div>
       </div>
