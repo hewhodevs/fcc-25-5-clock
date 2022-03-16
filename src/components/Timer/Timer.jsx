@@ -20,7 +20,7 @@ class Timer extends React.Component {
         <span id="time-left">{this.getMMSSFormat(this.props.timeLeft)}</span>
         <div>
           <button id="start_stop">{playPauseText}</button>
-          <button id="reset">reset</button>
+          <button id="reset" onClick={this.props.reset} >reset</button>
         </div>
       </div>
     );

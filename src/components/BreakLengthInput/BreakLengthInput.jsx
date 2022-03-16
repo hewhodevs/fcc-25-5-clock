@@ -13,7 +13,7 @@ class BreakLengthInput extends React.Component {
         <h2 id={`${name}-label`} className="BreakLengthInput-title">{name} length</h2>
         <div className="BreakLengthInput-controls">
           {/* Increment Button */}
-          <button className="BreakLengthInput-increment" id={`${name}-increment`} onClick={() => {this.props.incrementLength()}} >
+          <button className="BreakLengthInput-increment" id={`${name}-increment`} onClick={this.props.incrementLength} >
             &#43;
           </button>
           {/* Current Value */}
@@ -21,7 +21,7 @@ class BreakLengthInput extends React.Component {
             {this.props.value}
           </span>
           {/* Decrement Button */}
-          <button className="BreakLengthInput-decrement" id={`${name}-decrement`} onClick={() => {this.props.decrementLength()}} >
+          <button className="BreakLengthInput-decrement" id={`${name}-decrement`} onClick={this.props.decrementLength} >
             &#8722;
           </button>
         </div>

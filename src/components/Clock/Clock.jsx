@@ -7,15 +7,16 @@ class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      breakLength: 5,
-      sessionLength: 25,
-      timeLeft: 1500,
+      breakLength: 10,
+      sessionLength: 30,
+      timeLeft: 3600,
       isPlaying: false,
     }
     this.incrementBreakLength = this.incrementBreakLength.bind(this);
     this.decrementBreakLength = this.decrementBreakLength.bind(this);
     this.incrementSessionLength = this.incrementSessionLength.bind(this);
     this.decrementSessionLength = this.decrementSessionLength.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   incrementBreakLength() {
@@ -50,6 +51,15 @@ class Clock extends React.Component {
     }
   }
 
+  reset() {
+    this.setState({
+      breakLength: 5,
+      sessionLength: 25,
+      timeLeft: 1500,
+      isPlaying: false,
+    });
+  }
+
 
   render() {
     return(
@@ -71,7 +81,7 @@ class Clock extends React.Component {
             />
           </div>
           <div className="Timer-container">
-            <Timer timeLeft={this.state.timeLeft} isPlaying={this.state.isPlaying}/>
+            <Timer timeLeft={this.state.timeLeft} isPlaying={this.state.isPlaying} reset={this.reset}/>
           </div>
         </div>
       </div>
