@@ -61,6 +61,7 @@ class Clock extends React.Component {
     this.setState({
       breakLength: 5,
       sessionLength: 25,
+      isBreak: false,
       timeLeft: 1500,
       isPlaying: false,
     });
@@ -86,6 +87,7 @@ class Clock extends React.Component {
           </div>
           <div className="Timer-container">
             <Timer 
+              label={(this.state.isBreak) ? "Break" : "Session"}
               timeLeft={this.state.timeLeft} 
               isPlaying={this.state.isPlaying} 
               toggleIsBreak={this.toggleIsBreak}

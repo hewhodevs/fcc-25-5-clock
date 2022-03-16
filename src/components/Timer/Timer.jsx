@@ -58,7 +58,7 @@ class Timer extends React.Component {
 
     return(
       <div className="Timer">
-        <h2 id="timer-label">Session</h2>
+        <h2 id="timer-label">{this.props.label}</h2>
         <span id="time-left">{this.getMMSSFormat(this.props.timeLeft)}</span>
         <div>
           <button id="start_stop" onClick={this.startStop}>{playPauseText}</button>
