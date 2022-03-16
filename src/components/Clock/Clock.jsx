@@ -10,8 +10,18 @@ class Clock extends React.Component {
       breakLength: 5,
       sessionLength: 25,
       timeLeft: "25:00",
+      secondsLeft: 1500,
       isPlaying: false,
     }
+    this.getMMSSFormat = this.getMMSSFormat.bind(this);
+  }
+
+  getMMSSFormat(totalSeconds) {
+    let minutes = parseInt(totalSeconds / 60, 10);
+    let seconds = parseInt(totalSeconds % 60, 10);
+    if(minutes < 10) { minutes = "0" + minutes; }
+    if(seconds < 10) { seconds = "0" + seconds; }
+    return `${minutes}:${seconds}`;
   }
 
   render() {
