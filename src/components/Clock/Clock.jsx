@@ -97,6 +97,10 @@ class Clock extends React.Component {
             />
           </div>
         </div>
+        <footer>
+          <p>Created by <a href="https://twitter.com/hewhodevs">Joshua kelly</a></p>
+          <p>Code available on <a href="https://github.com/hewhodevs/fcc-25-5-clock">GitHub</a></p>
+        </footer>
       </div>
     );
   }
